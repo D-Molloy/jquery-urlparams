@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- Latest compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+      integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu"
+      crossorigin="anonymous"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/11.0.2/css/bootstrap-slider.css"
+      integrity="sha512-SZgE3m1he0aEF3tIxxnz/3mXu/u/wlMNxQSnE0Cni9j/O8Gs+TjM9tm1NX34nRQ7GiLwUEzwuE3Wv2FLz2667w=="
+      crossorigin="anonymous"
+    />
+    <style>
+      body {
+        padding: 50px 0 0 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- <input
+	type="text"
+	name="somename"
+	data-provide="slider"
+	data-slider-ticks="[1, 2, 3]"
+	data-slider-ticks-labels='["short", "medium", "long"]'
+	data-slider-min="1"
+	data-slider-max="3"
+	data-slider-step="1"
+	data-slider-value="3"
+	data-slider-tooltip="hide"
+> -->
+    <!-- Choose Neighborhood dropdown -->
+    <div class="dropdown">
+      <button
+        class="btn btn-default dropdown-toggle"
+        type="button"
+        id="neighborhood-select"
+        data-toggle="dropdown"
+        aria-haspopup="true"
+        aria-expanded="true"
+      >
+        Choose a Neighborhood
+        <span class="caret"></span>
+      </button>
+      <ul
+        class="dropdown-menu"
+        id="neighborhood-dropdown"
+        aria-labelledby="neighborhood-select"
+      >
+        <li
+          class="neighborhood-option"
+          data-param="neighborhood"
+          data-value="neighborhood1"
+        >
+          neighborhood1
+        </li>
+        <li
+          class="neighborhood-option"
+          data-param="neighborhood"
+          data-value="neighborhood2"
+        >
+          neighborhood2
+        </li>
+        <li
+          class="neighborhood-option"
+          data-param="neighborhood"
+          data-value="neighborhood3"
+        >
+          neighborhood3
+        </li>
+        <li
+          class="neighborhood-option"
+          data-param="neighborhood"
+          data-value="neighborhood4"
+        >
+          neighborhood4
+        </li>
+      </ul>
+    </div>
+    <br />
+    <!-- Guest Count Slider -->
+    <div>
+      <p># of Guests = <span id="guest-display">10</span></p>
+      <input
+        type="text"
+        id="guests-slider"
+        name="guests-slider"
+        data-param="guests"
+        data-provide="slider"
+        data-slider-min="10"
+        data-slider-max="300"
+        data-slider-step="10"
+        data-slider-value="10"
+        data-slider-tooltip="show"
+      />
+    </div>
+
+    <br />
+
+    <!-- Food Type Dropdown -->
+    <div class="dropdown">
+      <button
+        class="btn btn-default dropdown-toggle"
+        type="button"
+        id="food-select"
+        data-toggle="dropdown"
+        aria-haspopup="true"
+        aria-expanded="true"
+      >
+        Select Food Type
+        <span class="caret"></span>
+      </button>
+      <ul
+        class="dropdown-menu"
+        id="food-dropdown"
+        aria-labelledby="food-select"
+      >
+        <li class="food-option" data-param="food_type" data-value="food1">
+          food1
+        </li>
+        <li class="food-option" data-param="food_type" data-value="food2">
+          food2
+        </li>
+        <li class="food-option" data-param="food_type" data-value="food3">
+          food3
+        </li>
+        <li class="food-option" data-param="food_type" data-value="food4">
+          food4
+        </li>
+      </ul>
+    </div>
+
+    <br />
+
+    <!-- Atmosphere Dropdown -->
+    <div class="dropdown">
+      <button
+        class="btn btn-default dropdown-toggle"
+        type="button"
+        id="atmosphere-select"
+        data-toggle="dropdown"
+        aria-haspopup="true"
+        aria-expanded="true"
+      >
+        Select Atmosphere
+        <span class="caret"></span>
+      </button>
+      <ul
+        class="dropdown-menu"
+        id="atmosphere-dropdown"
+        aria-labelledby="atmosphere-select"
+      >
+        <li
+          class="atmosphere-option"
+          data-param="atmosphere_type"
+          data-value="atmosphere1"
+        >
+          atmosphere1
+        </li>
+        <li
+          class="atmosphere-option"
+          data-param="atmosphere_type"
+          data-value="atmosphere2"
+        >
+          atmosphere2
+        </li>
+        <li
+          class="atmosphere-option"
+          data-param="atmosphere_type"
+          data-value="atmosphere3"
+        >
+          atmosphere3
+        </li>
+        <li
+          class="atmosphere-option"
+          data-param="atmosphere_type"
+          data-value="atmosphere4"
+        >
+          atmosphere4
+        </li>
+      </ul>
+    </div>
+
+    <br />
+
+    <!-- Price Dropdown -->
+    <p>Price Range (per meal)</p>
+    <p id="price-display">$</p>
+    <input
+      type="text"
+      id="price-slider"
+      name="price-slider"
+      data-provide="slider"
+      data-param="price"
+      data-slider-min="1"
+      data-slider-max="3"
+      data-slider-step="1"
+      data-slider-value="1"
+      data-slider-tooltip="hide"
+    />
+
+    <br />
+    <br />
+
+    <!-- Price Dropdown -->
+    <p>Outdoor Space</p>
+    <label class="radio-inline">
+      <input
+        type="radio"
+        name="outdoor"
+        class="outdoor-option"
+        value="Yes"
+        data-param="outdoor"
+        data-value="1"
+      />
+      Yes
+    </label>
+    <br />
+    <label class="radio-inline">
+      <input
+        class="outdoor-option"
+        type="radio"
+        name="outdoor"
+        value="No"
+        data-param="outdoor"
+        data-value="0"
+      />
+      No
+    </label>
+
+    <br />
+    <br />
+
+    <!-- Parking Dropdown -->
+    <p>Offsite Parking</p>
+    <label class="radio-inline">
+      <input
+        type="radio"
+        name="offsite"
+        class="offsite-option"
+        value="Yes"
+        data-param="offsite_available"
+        data-value="1"
+      />
+      Yes
+    </label>
+    <br />
+    <label class="radio-inline">
+      <input
+        class="offsite-option"
+        type="radio"
+        name="offsite"
+        value="No"
+        data-param="offsite_available"
+        data-value="0"
+      />
+      No
+    </label>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"
+      integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/11.0.2/bootstrap-slider.min.js"
+      integrity="sha512-f0VlzJbcEB6KiW8ZVtL+5HWPDyW1+nJEjguZ5IVnSQkvZbwBt2RfCBY0CBO1PsMAqxxrG4Di6TfsCPP3ZRwKpA=="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      let testUrl = "https://www.socialarena.com/";
+      function updateUrlParams(paramArg, valueArg) {
+        console.log("{paramArg, valueArg}", { paramArg, valueArg });
+        // TODO: replace testUrl with window.location.href
+
+        // check if there are params on current URL
+        const [url, currentParams] = testUrl.split("?");
+
+        console.log("{url, currentParams}", { url, currentParams });
+        if (!currentParams) {
+          console.log("No Params");
+          // if not, add the param and value to the window.location.href
+          testUrl = testUrl + `?${paramArg}=${valueArg}`;
+          console.log("testUrl", testUrl);
+          console.log("========================================");
+          return;
+        }
+        // there are params
+        // break params into an array
+        const paramsArray = currentParams.split("&");
+    
+        // array to hold updated/new params
+        const updatedParams = [];
+
+        // PUSH UPDATED PARAM OR EXISTING PARAM
+        paramsArray.forEach((parameter, index) => {
+          // get the name and value of the current parameter
+          let [param, value] = parameter.split("=");
+          // if the param already exists, push the updated value into upd
+          if (param === paramArg) {
+            // add the updated value
+            updatedParams.push(`${param}=${valueArg}`);
+          } else {
+            // add the original value
+            updatedParams.push(`${param}=${value}`);
+          }
+          // TODO: need to remove params of a particular value i.e 0/default values?
+        });
+
+        // ADD NEW PARAM AS LONG AS IT DOESN'T ALREADY EXIST
+        if (!updatedParams.includes(`${paramArg}=${valueArg}`)) {
+          updatedParams.push(`${paramArg}=${valueArg}`);
+        }
+
+        testUrl = url + "?" + updatedParams.join("&");
+        console.log("testUrl", testUrl);
+        console.log("========================================");
+      }
+
+      /* DROPDOWN/RADIO EVENT HANDLER*/
+      $(
+        ".neighborhood-option, .food-option, .atmosphere-option, .outdoor-option, .filming-option, .offsite-option"
+      ).click(function () {
+        updateUrlParams($(this).attr("data-param"), $(this).attr("data-value"));
+      });
+
+      /* SLIDER EVENT HANDLER*/
+      $("#guests-slider, #price-slider").on("slideStop", function () {
+        updateUrlParams($(this).attr("data-param"), $(this).val());
+      });
+
+      // DOM - update GUEST COUNT / PRICE
+      $("#guests-slider").on("change", function () {
+        $("#guest-display").text($(this).val());
+      });
+      $("#price-slider").on("change", function () {
+        $("#price-display").text("$".repeat($(this).val()));
+      });
+
+      // BOOTSTRAP SLIDER DOCS - https://github.com/seiyria/bootstrap-slider
+      // http://seiyria.com/bootstrap-slider/#example-1
+
+      //   10       filter_food_type(params['food-type']).
+      //   11       filter_atmosphere_type(params['atmosphere-type']).
+      //   12       filter_neighborhood(params[:neighborhood]).
+      //   13       filter_outdoor(params[:outdoor]).
+      //   14       filter_offsite_available(params['offsite-available']).
+      //   15       filter_guests(params[:guests]).
+      //   16       filter_price(params[:price]).
+
+      // 			$(document).on('turbolinks:load', function() {
+      //   ... your code here
+      // })
+    </script>
+  </body>
+</html>
